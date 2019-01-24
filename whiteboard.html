@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>White Borad</title>
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginModal" class="modal">
+        <form class="modal-content animate" id="loginForm">
+            <div class="imgcontainer">
+            <!-- <span onclick="document.getElementById('loginModal').style.display='none'" class="close" title="Close Modal">&times;</span> -->
+            <h1>White Board</h1>
+            </div>
+            <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+        
+            <!-- <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required> -->
+                
+            <button type="submit">Login</button>
+            </div>
+        
+            <!-- <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+            </div> -->
+        </form>
+    </div>
+    <!-- White Board -->
+    <div id="whiteboard">
+        <div id="toolbar">
+            <div id="rad">
+                Radius <span id="radval">10</span>
+                <div id="decrad" class="radcontrol">-</div>
+                <div id="incrad" class="radcontrol">+</div>
+            </div>
+            <div id="colors">
+            </div>
+        </div>
+        <canvas id="canvas">
+        </canvas>
+        
+        <button class="open-button" onclick="openChat()" id="open-chat-box">Open Chat Box</button>
+
+        <div class="form-popup" id="chat">
+        <form id="chatForm" class="form-container" method="POST" >
+            <h1>Chat</h1>
+            <button type="button" class="btn cancel" onclick="closeChat()">X</button>
+            <hr>
+            <div id="chat-box">
+            </div>
+            <input type="text" placeholder="Enter your message.." name="message" autocomplete="off" required>
+            <button type="submit" class="btn">Send</button>
+        </form>
+        </div>
+    </div>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/radius.js"></script>
+    <script src="static/js/colors.js"></script>
+    <script src="static/js/chat.js"></script>
+</body>
+</html>

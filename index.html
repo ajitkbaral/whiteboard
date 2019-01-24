@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+    crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/peerjs/0.3.16/peer.min.js"></script>
+    <script src="/static/js/draw_point.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <button class="btn btn-success btn-sm" id="freestyle">Free Style</button>
+                    <button class="btn btn-primary btn-sm" id="line">Line</button>
+                </div>
+                <div class="col-md-12">
+                    <canvas id="canvas" width="800" height="800"></canvas>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="chat">
+
+                </div>
+                <form id="messageForm">
+                    Enter a message:<input type="text" id="message">
+                    <button class="btn btn-primary" id="sendMessage" type="submit">Send</button>
+                    </form>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    
+    
+    <script>
+        $(function() {
+            var socket = io.connect();
+            var form = $('#messageForm');
+            var message = $('#message');
+            var chat = $('#chat');
+
+            form.submit(function(e) {
+                e.preventDefault();
+                socket.emit('send message', message.val());
+                message.val('');
+            });
+
+            socket.on('new message', function(data) {
+                chat.append('<div>'+data.msg+'</div>');
+            });
+            
+        });
+    </script>
+</body>
+</html>
