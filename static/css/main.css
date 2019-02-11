@@ -159,6 +159,11 @@ body {
 
 
 /*---------------Login--------------------*/
+#login-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
   /* Full-width input fields */
   input[type=text], input[type=password] {
     width: 100%;
@@ -268,7 +273,12 @@ body {
   }
   
   /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
+  @media screen and (max-width: 850px) {
+    #login-container {
+      width: 100%;
+      margin: 0 auto;
+    }
+
     span.psw {
        display: block;
        float: none;
