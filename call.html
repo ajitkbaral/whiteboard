@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <a href="#" class="nav-barnd">WebRTC</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Receiver Video</h2>
+                <video controls id="receiver-video" width="100%" height="400px"></video>
+                <p>
+                    <button id="start" class="btn btn-primary">Start Conversation</button>
+                </p>
+                <textarea name="" id="offer" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-6">
+                <h2>Emitter Video</h2>
+                <video controls id="emitter-video" width="100%" height="400px"></video>
+                <p>
+                    <button id="receive" class="btn btn-warning">Receive</button>
+                </p>
+                <form id="incoming">
+                    <textarea class="form-control"></textarea>
+                    <p>
+                        <button type="submit">Incoming</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="static/js/simple-peer.min.js"></script>
+    <script src="static/js/peer.js"></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 
@@ -17,6 +18,10 @@ console.log('Server running at port 3000')
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/whiteboard.html');
+});
+
+app.get('/call', function(req, res) {
+    res.sendFile(__dirname + '/call.html');
 });
 
 app.get('/whiteboard', function(req, res) {
@@ -61,6 +66,3 @@ io.sockets.on('connection', function(socket) {
         io.sockets.emit('new draw', {points: data.points, socketColor: data.socketColor, socketRadius: data.socketRadius});
     });
 });
-
-
-

@@ -43,21 +43,22 @@
             <div id="colors">
             </div>
         </div>
+
         <canvas id="canvas">
         </canvas>
         
         <button class="open-button" onclick="openChat()" id="open-chat-box">Open Chat Box</button>
 
         <div class="form-popup" id="chat">
-        <form id="chatForm" class="form-container" method="POST" >
-            <h1>Chat</h1>
-            <button type="button" class="btn cancel" onclick="closeChat()">X</button>
-            <hr>
-            <div id="chat-box">
-            </div>
-            <input type="text" placeholder="Enter your message.." name="message" autocomplete="off" required>
-            <button type="submit" class="btn">Send</button>
-        </form>
+            <form id="chatForm" class="form-container" method="POST" >
+                <h1>Chat</h1>
+                <button type="button" class="btn cancel" onclick="closeChat()">X</button>
+                <hr>
+                <div id="chat-box">
+                </div>
+                <input type="text" placeholder="Enter your message.." name="message" autocomplete="off" required>
+                <button type="submit" class="btn">Send</button>
+            </form>
         </div>
     </div>
     <script src="static/js/main.js"></script>

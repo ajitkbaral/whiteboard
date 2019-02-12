@@ -20,6 +20,7 @@ loginForm.addEventListener('submit', function(e) {
 
 });
 
+
 socket.on('get users', function(data) {
     users = data;
     document.getElementById('open-chat-box').innerHTML = "Open Chat Box ("+users.length+")";
